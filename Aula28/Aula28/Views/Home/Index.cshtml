@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "App Escola";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1 class="h1">#1 Turma</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input class="form-control form-control-lg"
+                   type="text"
+                   placeholder="Digite o nome do aluno..."
+                   aria-label="Digite o nome do aluno..." />
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-lg btn-primary">
+                🔍
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <br />
+            <br />
+        </div>
+    </div>
+    
+        @{
+            public class Membros
+        {
+            public int Id { get; set; }
+            public string Nome { get; set; }
+            public string Sobrenome { get; set; }
+            public string Status { get; set; }
+        }
+
+        List<Membros> Membro = new List<Membros>();
+
+        persons.Add(new Membros()
+        {
+            Id = 1,
+            Nome = "Willian",
+            Sobrenome = "Sant Anna",
+            Status = "reprovado"
+        });
+
+        persons.Add(new Membros()
+        {
+            Id = 2,
+            Nome = "Thiago",
+            Sobrenome = "Machado",
+            Status = "aprovado"
+        });
+
+        persons.Add(new Membros()
+        {
+            Id = 3,
+            Nome = "Rodrigo",
+            Sobrenome = "Braga",
+            Status = "aprovado"
+        });
+
+        persons.Add(new Membros()
+        {
+            Id = 4,
+            Nome = "Caroline",
+            Sobrenome = "Da Silva",
+            Status = "recuperação"
+        });
+        }
+        
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr class="table-danger">
+                        <th scope="row">1</th>
+                        <td>Willian</td>
+                        <td>Sant Anna</td>
+                        <td>reprovado</td>
+                    </tr> -->
+                    @foreach(var Membro in Membros)
+                    {                      
+                        <tr>
+                            <th scope="row">@Membro.Id</th>
+                            <td>@Membro.Nome</td>
+                            <td>@Membro.Sobrenome</td>
+                            <td>@Membro.Status</td>
+                        </tr>
+                    }
+
+            </tbody>
+            </table>
+</div> 
